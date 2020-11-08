@@ -8,6 +8,7 @@ import os
 from bot import (
     APP_ID,
     API_HASH,
+    AUTH_USERS,
     DOWNLOAD_LOCATION,
     LOGGER,
     TG_BOT_TOKEN
@@ -25,7 +26,8 @@ from pyrogram import (
 
 from bot.plugins.incoming_message_fn import (
     incoming_start_message_f,
-    incoming_compress_message_f
+    incoming_compress_message_f,
+    incoming_cancel_message_f
 )
 
 
@@ -56,41 +58,51 @@ if __name__ == "__main__" :
     app.set_parse_mode("html")
     #
     # START command
+    incoming_start_message_handler = MessageHandler(
         incoming_start_message_f,
-        filters=Filters.command([Command.START])
+        filters=Filters.command([Command.START]) & Filters.chat(chats=AUTH_USERS)
     )
+    app.add_handler(incoming_start_message_handler)
     
     # COMPRESS command
+    incoming_compress_message_handler = MessageHandler(
         incoming_compress_message_f,
-        filters=Filters.command([Command.COMPRESS]
+        filters=Filters.command([Command.COMPRESS]) & Filters.chat(chats=AUTH_USERS)
     )
+    app.add_handler(incoming_compress_message_handler)
     
     # CANCEL command
+    incoming_cancel_message_handler = MessageHandler(
         incoming_cancel_message_f,
-        filters=Filters.command([Command.CANCEL])
+        filters=Filters.command([Command.CANCEL]) & Filters.chat(chats=AUTH_USERS)
     )
+    app.add_handler(incoming_cancel_message_handler)
 
     # MEMEs COMMANDs
     exec_message_handler = MessageHandler(
         exec_message_f,
-        filters=Filters.command([Command.EXEC])
+        filters=Filters.command([Command.EXEC]) & Filters.chat(chats=AUTH_USERS)
     )
+    app.add_handler(exec_message_handler)
     
     # HELP command
     help_text_handler = MessageHandler(
         help_message_f,
-        filters=Filters.command([Command.HELP])
+        filters=Filters.command([Command.HELP]) & Filters.chat(chats=AUTH_USERS)
     )
+    app.add_handler(help_text_handler)
     
     # Telegram command to upload LOG files
     upload_log_f_handler = MessageHandler(
         upload_log_file,
-        filters=Filters.command([Command.UPLOAD_LOG_FILE])
+        filters=Filters.command([Command.UPLOAD_LOG_FILE]) & Filters.chat(chats=AUTH_USERS)
     )
+    app.add_handler(upload_log_f_handler)
     
-    call_back_button_handler = CallbackQueryHandler
+    call_back_button_handler = CallbackQueryHandler(
         button
     )
+    app.add_handler(call_back_button_handler)
 
     # run the APPlication
     app.run()
