@@ -68,40 +68,34 @@ if __name__ == "__main__" :
         incoming_compress_message_f,
         filters=Filters.command([Command.COMPRESS]
     )
-    app.add_handler(incoming_compress_message_handler)
     
     # CANCEL command
     incoming_cancel_message_handler = MessageHandler(
         incoming_cancel_message_f,
         filters=Filters.command([Command.CANCEL])
     )
-    app.add_handler(incoming_cancel_message_handler)
 
     # MEMEs COMMANDs
     exec_message_handler = MessageHandler(
         exec_message_f,
         filters=Filters.command([Command.EXEC])
     )
-    app.add_handler(exec_message_handler)
     
     # HELP command
     help_text_handler = MessageHandler(
         help_message_f,
         filters=Filters.command([Command.HELP])
     )
-    app.add_handler(help_text_handler)
     
     # Telegram command to upload LOG files
     upload_log_f_handler = MessageHandler(
         upload_log_file,
         filters=Filters.command([Command.UPLOAD_LOG_FILE])
     )
-    app.add_handler(upload_log_f_handler)
     
     call_back_button_handler = CallbackQueryHandler
         button
     )
-    app.add_handler(call_back_button_handler)
 
     # run the APPlication
     app.run()
