@@ -4,21 +4,28 @@
 
 # the logging things
 import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 import math
 import os
 import time
+import json
 
-# the secret configuration specific things
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
+from bot import (
+    FINISHED_PROGRESS_STR,
+    UN_FINISHED_PROGRESS_STR,
+    DOWNLOAD_LOCATION
+)
+
 
 async def progress_for_pyrogram(
     current,
     total,
+    bot,
     ud_type,
     message,
     start
@@ -28,6 +35,12 @@ async def progress_for_pyrogram(
     if round(diff % 10.00) == 0 or current == total:
         # if round(current / total * 100, 0) % 5 == 0:
         percentage = current * 100 / total
+        status = DOWNLOAD_LOCATION + "/status.json"
+        if os.path.exists(status):
+            with open(status, 'r+') as f:
+                statusMsg = json.load(f)
+                if not statusMsg["running"]:
+                    bot.stop_transmission()
         speed = current / diff
         elapsed_time = round(diff) * 1000
         time_to_completion = round((total - current) / speed) * 1000
@@ -36,12 +49,12 @@ async def progress_for_pyrogram(
         elapsed_time = TimeFormatter(milliseconds=elapsed_time)
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-        progress = "[{0}{1}] \n <b>⭕Percentage:</b> {2}%\n".format(
-            ''.join(["□" for i in range(math.floor(percentage / 5))]),
-            ''.join(["■" for i in range(20 - math.floor(percentage / 5))]),
+        progress = "[{0}{1}] \n⭕ <b>Progress:</b> {2}%\n".format(
+            ''.join(["□" for i in range(math.floor(percentage / 10))]),
+            ''.join(["■" for i in range(10 - math.floor(percentage / 10))]),
             round(percentage, 2))
 
-        tmp = progress + "<b>⭕Completed:</b>{0} \n<b>⭕Total Size:</b> {1}\n<b>⭕Speed:</b> {2}/s\n<b>⭕ETA:</b> {3}\n".format(
+        tmp = progress + "{0} of {1}\n⭕Speed: {2}/s\n⭕ETA: {3}\n".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
@@ -49,12 +62,20 @@ async def progress_for_pyrogram(
             estimated_total_time if estimated_total_time != '' else "0 s"
         )
         try:
-            await message.edit(
-                text="{}\n {}".format(
-                    ud_type,
-                    tmp
+            if not message.photo:
+                await message.edit_text(
+                    text="{}\n {}".format(
+                        ud_type,
+                        tmp
+                    )
                 )
-            )
+            else:
+                await message.edit_caption(
+                    caption="{}\n {}".format(
+                        ud_type,
+                        tmp
+                    )
+                )
         except:
             pass
 
@@ -81,6 +102,5 @@ def TimeFormatter(milliseconds: int) -> str:
     tmp = ((str(days) + "d, ") if days else "") + \
         ((str(hours) + "h, ") if hours else "") + \
         ((str(minutes) + "m, ") if minutes else "") + \
-        ((str(seconds) + "s, ") if seconds else "") + \
-        ((str(milliseconds) + "ms, ") if milliseconds else "")
+        ((str(seconds) + "s, ") if seconds else "")
     return tmp[:-2]
