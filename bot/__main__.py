@@ -62,7 +62,6 @@ if __name__ == "__main__" :
         incoming_start_message_f,
         filters=Filters.command([Command.START])
     )
-    app.add_handler(incoming_start_message_handler)
     
     # COMPRESS command
     incoming_compress_message_handler = MessageHandler(
