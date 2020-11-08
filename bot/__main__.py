@@ -8,7 +8,6 @@ import os
 from bot import (
     APP_ID,
     API_HASH,
-    AUTH_USERS,
     DOWNLOAD_LOCATION,
     LOGGER,
     TG_BOT_TOKEN
@@ -26,8 +25,7 @@ from pyrogram import (
 
 from bot.plugins.incoming_message_fn import (
     incoming_start_message_f,
-    incoming_compress_message_f,
-    incoming_cancel_message_f
+    incoming_compress_message_f
 )
 
 
@@ -58,19 +56,16 @@ if __name__ == "__main__" :
     app.set_parse_mode("html")
     #
     # START command
-    incoming_start_message_handler = MessageHandler(
         incoming_start_message_f,
         filters=Filters.command([Command.START])
     )
     
     # COMPRESS command
-    incoming_compress_message_handler = MessageHandler(
         incoming_compress_message_f,
         filters=Filters.command([Command.COMPRESS]
     )
     
     # CANCEL command
-    incoming_cancel_message_handler = MessageHandler(
         incoming_cancel_message_f,
         filters=Filters.command([Command.CANCEL])
     )
