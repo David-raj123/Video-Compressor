@@ -35,7 +35,7 @@ class Localisation:
     
     RCHD_TG_API_LIMIT = "Downloaded In {} Seconds.\nDetected File Size: {}\nSorry. But, I Cannot Upload Files Greater Than 1.5GB Due To Telegram API Limitations."
     
-    COMPRESS_SUCCESS = "Downloaded in {}\n\nCompressed In {}\n\nUploaded In {}\n\nThanks For Using Me Please Join @TeluguCartoonWorld❤️"
+    COMPRESS_SUCCESS = "⭕Downloaded in {}\n\n⭕Compressed In {}\n\n⭕Uploaded In {}\n\nThanks For Using Me Please Join @TeluguCartoonWorld❤️"
 
     COMPRESS_PROGRESS = "⭕ ETA: {}\n⭕ Progress: {}%"
 
