@@ -25,41 +25,41 @@ class Localisation:
     FORMAT_SELECTION = "Select The Format To Convert Or Download: <a href='{}'>File Size Might Be Approximate</a> \nSend Photo To Set custom thumbnail Or Use /deletethumbnail To Clear Thumbnail Data."
     
     
-    DOWNLOAD_START = "Iam Downloading ⬇️... \n"
+    DOWNLOAD_START = "<b>Downloading ⬇️</b>"
     
-    UPLOAD_START = "Iam Uploading⬆️... \n"
+    UPLOAD_START = "<b>Uploading⬆️</b>"
     
-    COMPRESS_START = "Compressing The File.."
+    COMPRESS_START = "<b>Compressing The File..⏳</b>"
     
-    RCHD_BOT_API_LIMIT = "Size Greater Than Maximum Allowed Size (50MB). Neverthless, Trying To Upload."
+    RCHD_BOT_API_LIMIT = "<b>Size Greater Than Maximum Allowed Size (50MB). Neverthless, Trying To Upload.</b>"
     
-    RCHD_TG_API_LIMIT = "Downloaded In {} Seconds.\nDetected File Size: {}\nSorry. But, I Cannot Upload Files Greater Than 1.5GB Due To Telegram API Limitations."
+    RCHD_TG_API_LIMIT = "⭕<b>Downloaded In</b> {} </b>Seconds</b>.\n⭕<b>Detected File Size</b> : {}\n</b>Sorry. But, I Cannot Upload Files Greater Than 1.9GB Due To Telegram API Limitations.<b>"
     
-    COMPRESS_SUCCESS = "⭕Downloaded in {}\n\n⭕Compressed In {}\n\n⭕Uploaded In {}\n\nThanks For Using Me Please Join @TeluguCartoonWorld❤️"
+    COMPRESS_SUCCESS = "⭕<b>Downloaded In</b> {}\n⭕<b>Compressed In</b> {}\n</b>⭕Uploaded In</b> {}\n<b>Thanks For Using Me Please Join @David_Botz</b>"
 
-    COMPRESS_PROGRESS = "⭕ ETA: {}\n⭕ Progress: {}%"
+    COMPRESS_PROGRESS = "<b>⭕ETA</b> : {}\n⭕<b>Progress </b>: {}%"
 
-    SAVED_CUSTOM_THUMB_NAIL = "Custom Video / File Thumbnail Saved. This Image Will Be Used In The Video / File."
+    SAVED_CUSTOM_THUMB_NAIL = "<b>Custom Video / File Thumbnail Saved. This Image Will Be Used In The Video / File.</b>"
     
-    DEL_ETED_CUSTOM_THUMB_NAIL = "✅ Custom Thumbnail Cleared Successfully."
+    DEL_ETED_CUSTOM_THUMB_NAIL = "<b>✓ Custom Thumbnail Cleared Successfully.</b>"
     
-    FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "✅ Media cleared succesfully."
+    FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "<b>✓ Media cleared succesfully.</b>"
     
-    SAVED_RECVD_DOC_FILE = "✅ Downloaded Successfully."
+    SAVED_RECVD_DOC_FILE = "<b>✓ Downloaded Successfully.</b>"
     
     CUSTOM_CAPTION_UL_FILE = " "
     
-    NO_CUSTOM_THUMB_NAIL_FOUND = "No Custom ThumbNail Found."
+    NO_CUSTOM_THUMB_NAIL_FOUND = "<b>No Custom ThumbNail Found.</b>"
     
-    NO_VOID_FORMAT_FOUND = "Sorry You Cant Use It Use Please Try Again With Correct One\n{}"
+    NO_VOID_FORMAT_FOUND = "<b>Sorry You Cant Use It , Please Try Again With Correct One\n{}</b>"
     
     USER_ADDED_TO_DB = "⭕User <a href='tg://user?id={}'>{}</a> Added To {} Till {}."
     
-    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "Already One Process Is Going On. \n Or \n A Media Already Exists. \n  Please Send /cancel To Delete Existingng Media."
+    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "<b>Already One Person Using Me"
     
     HELP_MESSAGE = get_config(
         "STRINGS_HELP_MESSAGE",
-        "Hi I Am Video Compressor Bot \n\n1. Please Send Me Any Telegram Big File I Will Try My Best To Convert It On To Small File \n2. Reply To The File - /compress And Persentage \nEg:- <code>/compress 50</code> \n\nAny Doubts Ask My Master :- @David9010"
+        "<b>Hi I Am Video Compressor Bot \n\n1. Please Send Me Any Telegram Big File I Will Try My Best To Convert It On To Small File \n2. Reply To The File - /compress And Persentage \nEg:- <code>/compress 50</code> \n\nAny Doubts Ask My Master :- @David_Botz</b>"
     )
     WRONG_MESSAGE = get_config(
         "STRINGS_WRONG_MESSAGE",
