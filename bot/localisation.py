@@ -18,44 +18,43 @@ from bot.get_cfg import get_config
 
 
 class Localisation:
-    START_TEXT = "Hello , \n\nThis Is A Telegram Video Compress Bot \n\n<b>Please Send Me Any Telegram Big File I Will Try My Best To Convert It To Small File</b> \n\n/help for more details ... \n\nBy @David9010"
+    START_TEXT = "**Hai , I Am Video Compress Bot.**"
    
-    ABS_TEXT = " Please Dont Be Selfish."
+    ABS_TEXT = "**It's Abs Text, I Can't Do That.**"
     
     FORMAT_SELECTION = "Select The Format To Convert Or Download: <a href='{}'>File Size Might Be Approximate</a> \nSend Photo To Set custom thumbnail Or Use /deletethumbnail To Clear Thumbnail Data."
     
+    DOWNLOAD_START = "**Downloading ⬇️**"
     
-    DOWNLOAD_START = "<b>Downloading ⬇️</b>"
+    UPLOAD_START = "**Uploading ⬆️**"
     
-    UPLOAD_START = "<b>Uploading⬆️</b>"
+    COMPRESS_START = "**Compressing The File..⏳**"
     
-    COMPRESS_START = "<b>Compressing The File..⏳</b>"
+    RCHD_BOT_API_LIMIT = "**Size Greater Than Maximum Allowed Size (50MB). Neverthless, Trying To Upload.**"
     
-    RCHD_BOT_API_LIMIT = "<b>Size Greater Than Maximum Allowed Size (50MB). Neverthless, Trying To Upload.</b>"
+    RCHD_TG_API_LIMIT = "⭕**Downloaded In** {} **Seconds**.\n⭕**Detected File Size** : {}\n**Sorry. But, I Cannot Upload Files Greater Than 1.9GB Due To Telegram API Limitations.**"
     
-    RCHD_TG_API_LIMIT = "⭕<b>Downloaded In</b> {} </b>Seconds</b>.\n⭕<b>Detected File Size</b> : {}\n</b>Sorry. But, I Cannot Upload Files Greater Than 1.9GB Due To Telegram API Limitations.<b>"
-    
-    COMPRESS_SUCCESS = "⭕<b>Downloaded In</b> {}\n⭕<b>Compressed In</b> {}\n</b>⭕Uploaded In</b> {}\n<b>Thanks For Using Me Please Join @David_Botz</b>"
+    COMPRESS_SUCCESS = "⭕**Downloaded In** {}\n⭕**Compressed In** {}\n**⭕Uploaded In** {}\n**© David_Botz**"
 
-    COMPRESS_PROGRESS = "<b>⭕ETA</b> : {}\n⭕<b>Progress </b>: {}%"
+    COMPRESS_PROGRESS = "**⭕ETA** : {}\n⭕**Progress** : {}%"
 
-    SAVED_CUSTOM_THUMB_NAIL = "<b>Custom Video / File Thumbnail Saved. This Image Will Be Used In The Video / File.</b>"
+    SAVED_CUSTOM_THUMB_NAIL = "**Custom Video / File Thumbnail Saved. This Image Will Be Used In The Video / File.**"
     
-    DEL_ETED_CUSTOM_THUMB_NAIL = "<b>✓ Custom Thumbnail Cleared Successfully.</b>"
+    DEL_ETED_CUSTOM_THUMB_NAIL = "**✓ Custom Thumbnail Cleared Successfully.**"
     
-    FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "<b>✓ Media cleared succesfully.</b>"
+    FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "**✓ Media cleared succesfully.**"
     
-    SAVED_RECVD_DOC_FILE = "<b>✓ Downloaded Successfully.</b>"
+    SAVED_RECVD_DOC_FILE = "**✓ Downloaded Successfully.**"
     
     CUSTOM_CAPTION_UL_FILE = " "
     
-    NO_CUSTOM_THUMB_NAIL_FOUND = "<b>No Custom ThumbNail Found.</b>"
+    NO_CUSTOM_THUMB_NAIL_FOUND = "**No Custom ThumbNail Found.**"
     
-    NO_VOID_FORMAT_FOUND = "<b>Sorry You Cant Use It , Please Try Again With Correct One\n{}</b>"
+    NO_VOID_FORMAT_FOUND = "**Sorry You Cant Use It , Please Try Again With Correct One\n{}**"
     
     USER_ADDED_TO_DB = "⭕User <a href='tg://user?id={}'>{}</a> Added To {} Till {}."
     
-    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "<b>Already One Person Using Me"
+    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "**Already One Person Using Me**""
     
     HELP_MESSAGE = get_config(
         "STRINGS_HELP_MESSAGE",
